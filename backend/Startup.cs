@@ -26,7 +26,27 @@ namespace backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("MyCors",
+                builder =>
+                {
+                    // builder.WithOrigins(
+                    //     "http://localhost:3000",
+                    //     "https://localhost:3000",
+                    //     "https://direwolvesndragons.netlify.com"
+                    // );
+
+                    // Allow any origin for the sake of the project. Normally we'd restrict origin domains
+                    // to the domains we control.
+                    builder.AllowAnyHeader().AllowAnyOrigin();
+                });
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+
+            // Set up the database context using the in memory database we created.
             services.AddDbContext<InMemoryDbContext>(options => options.UseInMemoryDatabase(databaseName: "Direwolves & Dragons"));
         }
 
@@ -42,6 +62,10 @@ namespace backend
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            // Allow any origin for the sake of the project. Normally we'd restrict origin domains
+            // to the domains we control.
+            app.UseCors("MyCors");
 
             app.UseHttpsRedirection();
             app.UseMvc();
