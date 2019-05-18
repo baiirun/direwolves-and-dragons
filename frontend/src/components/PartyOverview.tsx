@@ -1,10 +1,12 @@
 import React from 'react';
+import StrengthIcon from '../icons/strength.svg';
 
 const PartyOverview = () => {
     return (
-        <div>
+        <>
             <div>Party Overview</div>
-        </div>
+            <img src='../icons/strength.svg' />
+        </>
     );
 };
 
