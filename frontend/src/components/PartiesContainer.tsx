@@ -1,53 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PartyCard from './PartyCard';
-
-export type Party = {
-    id: number;
-    name: string;
-    tagline: string;
-    logoUrl: string;
-    characters: Character[];
-};
-
-export type Character = {
-    id: number;
-    name: string;
-    race: Race;
-    class: Class;
-    imageUrl: string;
-    health: number;
-    strength: number;
-    dexterity: number;
-    constitution: number;
-    intelligence: number;
-    wisdom: number;
-    charisma: number;
-};
-
-export enum Race {
-    Human,
-    Dwarf,
-    DeathKnight,
-    Zombie,
-    Giant,
-    IceDragon,
-}
-
-export enum Class {
-    Barbarian,
-    Bard,
-    Cleric,
-    Druid,
-    Fighter,
-    Monk,
-    Paladin,
-    Ranger,
-    Rogue,
-    Sorcerer,
-    Warlock,
-    Wizard,
-}
+import { Party } from './Types';
 
 const PartiesContainer = () => {
     const [parties, setParties] = React.useState<Party[]>([]);

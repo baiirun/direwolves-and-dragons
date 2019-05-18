@@ -61,7 +61,7 @@ const BottomContainer = styled.div`
     flex-direction: column;
     justify-content: space-between;
     height: 100px;
-    margin: 6px 13px;
+    margin: 6px 18px;
 `;
 
 const TitleContainer = styled.header`
@@ -85,7 +85,8 @@ const CharacterAvatar = styled.img`
     border-radius: 50%;
     width: 35px;
     height: 35px;
-    margin-right: 6px;
+    margin-right: -12px;
+    border: 3px solid #fff;
     object-fit: cover;
 `;
 

@@ -68,7 +68,7 @@ public class DataGenerator
             context.Parties.AddRange(
                 new Models.Party
                 {
-                    Name = "Starks",
+                    Name = "The Starks",
                     Tagline = "Winter is Coming.",
                     LogoUrl = "https://res.cloudinary.com/byronguina/image/upload/c_fit,f_auto,h_180,w_250/v1558197113/Stark.jpg",
                     Characters = new List<Models.Character>()
@@ -133,7 +133,7 @@ public class DataGenerator
                 },
                 new Models.Party
                 {
-                    Name = "Targaryens",
+                    Name = "The Targaryens",
                     Tagline = "Fire and Blood.",
                     LogoUrl = "https://res.cloudinary.com/byronguina/image/upload/c_fit,f_auto,h_180,w_250/v1558196262/Targaryen.jpg",
                     Characters = new List<Models.Character>()
@@ -198,7 +198,7 @@ public class DataGenerator
                 },
                 new Models.Party
                 {
-                    Name = "Lannisters",
+                    Name = "The Lannisters",
                     Tagline = "Hear Me Roar!",
                     LogoUrl = "https://res.cloudinary.com/byronguina/image/upload/c_fit,f_auto,h_180,w_250/v1558197786/Lannister.png",
                     Characters = new List<Models.Character>()
@@ -393,7 +393,7 @@ public class DataGenerator
                 },
                 new Models.Party
                 {
-                    Name = "Night's Watch",
+                    Name = "The Night's Watch",
                     Tagline = "And now our watch has ended...",
                     LogoUrl = "https://res.cloudinary.com/byronguina/image/upload/c_fit,f_auto,h_180,w_280/v1558197787/Night_Watch.png",
                     Characters = new List<Models.Character>()
