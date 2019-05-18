@@ -23,14 +23,16 @@ namespace backend.Controllers
         public ActionResult<IEnumerable<Party>> Get()
         {
             // Normally there'd be more robust status code handling
+            // We can build a response that includes the relevant character information as well
             return _context.Parties.ToList();
         }
 
-        // GET api/values/5
+        // GET api/party/5
         [HttpGet("{id}")]
         public ActionResult<Party> Get(int id)
         {
             // Normally there'd be more robust status code handling
+            // We can build a response that includes the relevant character information as well
             return _context.Parties.FirstOrDefault(p => p.Id == id);
         }
     }
