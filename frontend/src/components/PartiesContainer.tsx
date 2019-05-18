@@ -42,8 +42,4 @@ const CardsContainer = styled.div`
     max-width: 1400px;
 `;
 
-const Title = styled.h1`
-    font-weight: 400;
-`;
-
 export default PartiesContainer;

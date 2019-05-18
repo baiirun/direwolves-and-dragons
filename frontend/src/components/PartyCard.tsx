@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { Party } from './PartiesContainer';
+import { Party, Character } from './Types';
 
 type Props = {
     party: Party;
 };
 
 const PartyCard = ({ party }: Props) => {
-    const characters = party.characters.map((character) => (
+    const characters = party.characters.map((character: Character) => (
         <CharacterAvatar key={character.id} src={character.imageUrl} />
     ));
 

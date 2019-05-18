@@ -1,19 +1,21 @@
 import React from 'react';
-import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
 import Navigation from './components/Navigation';
 import routes from './routes';
 
 const App = () => {
-    const Routes = routes.map((route) => <Route path={route.path} component={route.component} {...route} />);
+    const Routes = routes.map((route) => (
+        <Route key={route.path} path={route.path} component={route.component} {...route} />
+    ));
 
     return (
-        <Router>
+        <>
             <GlobalStyles />
             <Navigation />
             <Switch>{Routes}</Switch>
-        </Router>
+        </>
     );
 };
 
