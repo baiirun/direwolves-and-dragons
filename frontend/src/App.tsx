@@ -1,25 +1,28 @@
 import React from 'react';
-import { Route, Switch } from 'react-router';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
 import Navigation from './components/Navigation';
 import routes from './routes';
 
 const App = () => {
-    const routesToRender = routes.map((route) => <Route to={route.path} component={route.component} />);
+    const Routes = routes.map((route) => <Route path={route.path} component={route.component} {...route} />);
 
     return (
         <Router>
             <GlobalStyles />
             <Navigation />
-            <Switch>{routesToRender}</Switch>
+            <Switch>{Routes}</Switch>
         </Router>
     );
 };
 
 const GlobalStyles = createGlobalStyle`
     @import url('https://rsms.me/inter/inter.css');
+
+    body {
+        background-color: #fafafa;
+    }
 
     html {
         font-size: 1.125;
