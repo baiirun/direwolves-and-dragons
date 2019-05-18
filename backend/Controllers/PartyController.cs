@@ -28,11 +28,10 @@ namespace backend.Controllers
 
             parties.ForEach(p =>
             {
-                p.Characters = _context.Characters.Where(c => c.PartyId == p.Id);
+                p.Characters = _context.Characters.Where(c => c.PartyId == p.Id).ToList();
             });
 
             return Ok(parties);
-
         }
 
         // GET api/party/5
@@ -41,9 +40,9 @@ namespace backend.Controllers
         {
             // Normally there'd be more robust status code/error handling
             // EF ought to handle these relationships easier.
-            var characters = _context.Characters.Where(c => c.PartyId == id);
+            var characters = _context.Characters.Where(c => c.PartyId == id).ToList();
             var party = _context.Parties.First(p => p.Id == id);
-            party.Characters = characters.ToList();
+            party.Characters = characters;
 
             return Ok(party);
         }

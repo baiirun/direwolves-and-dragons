@@ -11,7 +11,7 @@ public class DataGenerator
         using (var context = new InMemoryDbContext(
             serviceProvider.GetRequiredService<DbContextOptions<InMemoryDbContext>>()))
         {
-            if (context.Parties.Any())
+            if (context.Parties.Any() && context.Characters.Any())
             {
                 return;   // Data was already seeded
             }
