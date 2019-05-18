@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Models
 {
@@ -9,7 +10,13 @@ namespace Models
         public Race Race { get; set; }
         public Class Class { get; set; }
         public string ImageUrl { get; set; } // We'll use a CDN to host our images
-        public Stats Stats { get; set; }
-        public IEnumerable<PartyCharacter> PartyCharacters { get; set; }
+        public int Health { get; set; }
+        public int Strength { get; set; }
+        public int Dexterity { get; set; }
+        public int Constitution { get; set; }
+        public int Intelligence { get; set; }
+        public int Wisdom { get; set; }
+        public int Charisma { get; set; }
+        public int PartyId { get; set; }
     }
 }

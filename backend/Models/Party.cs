@@ -8,6 +8,6 @@ namespace Models
         public string Name { get; set; }
         public string Tagline { get; set; }
         public string LogoUrl { get; set; }   // We'll use a CDN to host our images
-        public IEnumerable<PartyCharacter> PartyCharacters { get; set; }
+        public IEnumerable<Character> Characters { get; set; }
     }
 }

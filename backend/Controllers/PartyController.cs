@@ -31,9 +31,12 @@ namespace backend.Controllers
         [HttpGet("{id}")]
         public ActionResult<Party> Get(int id)
         {
-            // Normally there'd be more robust status code handling
-            // We can build a response that includes the relevant character information as well
-            return _context.Parties.FirstOrDefault(p => p.Id == id);
+            // Normally there'd be more robust status code/error handling
+            // EF ought to handle these relationships easier.
+            var characters = _context.Characters.Where(c => c.PartyId == id);
+            var party = _context.Parties.First(p => p.Id == id);
+            party.Characters = characters.ToList();
+            return Ok(party);
         }
     }
 }
