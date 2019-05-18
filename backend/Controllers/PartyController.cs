@@ -24,7 +24,15 @@ namespace backend.Controllers
         {
             // Normally there'd be more robust status code handling
             // We can build a response that includes the relevant character information as well
-            return _context.Parties.ToList();
+            var parties = _context.Parties.ToList();
+
+            parties.ForEach(p =>
+            {
+                p.Characters = _context.Characters.Where(c => c.PartyId == p.Id);
+            });
+
+            return Ok(parties);
+
         }
 
         // GET api/party/5
@@ -36,6 +44,7 @@ namespace backend.Controllers
             var characters = _context.Characters.Where(c => c.PartyId == id);
             var party = _context.Parties.First(p => p.Id == id);
             party.Characters = characters.ToList();
+
             return Ok(party);
         }
     }

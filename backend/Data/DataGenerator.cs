@@ -17,7 +17,7 @@ public class DataGenerator
             }
 
             context.Characters.AddRange(
-                new Models.Character
+                new Models.Character()
                 {
                     Name = "Melisandre",
                     Race = Race.Human,
@@ -30,7 +30,7 @@ public class DataGenerator
                     Wisdom = 18,
                     Charisma = 18
                 },
-                new Models.Character
+                new Models.Character()
                 {
                     Name = "Barristan Selmy",
                     Race = Race.Human,
@@ -43,7 +43,7 @@ public class DataGenerator
                     Wisdom = 15,
                     Charisma = 12
                 },
-                new Models.Character
+                new Models.Character()
                 {
                     Name = "Varys the Spider",
                     Race = Race.Human,
@@ -72,7 +72,7 @@ public class DataGenerator
                     Tagline = "Winter is Coming.",
                     Characters = new List<Models.Character>()
                     {
-                        new Models.Character
+                        new Models.Character()
                         {
                             Name = "Jon Snow",
                             Race = Race.Human,
@@ -85,7 +85,7 @@ public class DataGenerator
                             Wisdom = 12,
                             Charisma = 16
                         },
-                        new Models.Character
+                        new Models.Character()
                         {
                             Name = "Arya Stark",
                             Race = Race.Human,
@@ -98,7 +98,7 @@ public class DataGenerator
                             Wisdom = 12,
                             Charisma = 16
                         },
-                        new Models.Character
+                        new Models.Character()
                         {
                             Name = "Sansa Stark",
                             Race = Race.Human,
@@ -111,7 +111,7 @@ public class DataGenerator
                             Wisdom = 14,
                             Charisma = 16
                         },
-                        new Models.Character
+                        new Models.Character()
                         {
                             Name = "Bran Stark",
                             Race = Race.Human,
@@ -132,7 +132,7 @@ public class DataGenerator
                     Tagline = "Fire and Blood.",
                     Characters = new List<Models.Character>()
                     {
-                        new Models.Character
+                        new Models.Character()
                         {
                             Name = "Daenerys",
                             Race = Race.Human,
@@ -145,7 +145,7 @@ public class DataGenerator
                             Wisdom = 12,
                             Charisma = 18
                         },
-                        new Models.Character
+                        new Models.Character()
                         {
                             Name = "Jorah Mormont",
                             Race = Race.Human,
@@ -158,7 +158,7 @@ public class DataGenerator
                             Wisdom = 15,
                             Charisma = 8
                         },
-                        new Models.Character
+                        new Models.Character()
                         {
                             Name = "Grey Worm",
                             Race = Race.Human,
@@ -171,7 +171,7 @@ public class DataGenerator
                             Wisdom = 12,
                             Charisma = 1
                         },
-                        new Models.Character
+                        new Models.Character()
                         {
                             Name = "Tyrion Lannister",
                             Race = Race.Dwarf,
@@ -192,7 +192,7 @@ public class DataGenerator
                     Tagline = "Hear Me Roar!",
                     Characters = new List<Models.Character>()
                     {
-                        new Models.Character
+                        new Models.Character()
                         {
                             Name = "Jamie Lannister",
                             Race = Race.Human,
@@ -205,7 +205,7 @@ public class DataGenerator
                             Wisdom = 12,
                             Charisma = 18
                         },
-                        new Models.Character
+                        new Models.Character()
                         {
                             Name = "Cersei Lannister",
                             Race = Race.Human,
@@ -218,7 +218,7 @@ public class DataGenerator
                             Wisdom = 12,
                             Charisma = 9
                         },
-                        new Models.Character
+                        new Models.Character()
                         {
                             Name = "Gregor Clegane",
                             Race = Race.Human,
@@ -231,7 +231,7 @@ public class DataGenerator
                             Wisdom = 1,
                             Charisma = 1
                         },
-                        new Models.Character
+                        new Models.Character()
                         {
                             Name = "Maester Qyburn",
                             Race = Race.Human,
@@ -256,7 +256,7 @@ public class DataGenerator
                         // are unique and it's easier to swap around characters this way.
                         // This isn't _super_ performant either, but it's not a huge deal
                         // since the dataset is so small.
-                        new Models.Character
+                        new Models.Character()
                         {
                             Name = "The Night King",
                             Race = Race.DeathKnight,
@@ -269,7 +269,7 @@ public class DataGenerator
                             Wisdom = 18,
                             Charisma = 18
                         },
-                        new Models.Character
+                        new Models.Character()
                         {
                             Name = "Wight Giant",
                             Race = Race.Giant,
@@ -282,7 +282,7 @@ public class DataGenerator
                             Wisdom = 1,
                             Charisma = 1
                         },
-                        new Models.Character
+                        new Models.Character()
                         {
                             Name = "Viserion",
                             Race = Race.IceDragon,
@@ -295,7 +295,7 @@ public class DataGenerator
                             Wisdom = 18,
                             Charisma = 1
                         },
-                        new Models.Character
+                        new Models.Character()
                         {
                             Name = "Wight",
                             Race = Race.Zombie,
@@ -316,7 +316,7 @@ public class DataGenerator
                     Tagline = "We're characters, too, you know...",
                     Characters = new List<Models.Character>()
                     {
-                        new Models.Character
+                        new Models.Character()
                         {
                             Name = "Brienne of Tarth",
                             Race = Race.Human,
@@ -329,7 +329,7 @@ public class DataGenerator
                             Wisdom = 10,
                             Charisma = 6    // Arguable
                         },
-                        new Models.Character
+                        new Models.Character()
                         {
                             Name = "Davos Seaworth",
                             Race = Race.Human,
@@ -342,7 +342,7 @@ public class DataGenerator
                             Wisdom = 18,
                             Charisma = 12
                         },
-                        new Models.Character
+                        new Models.Character()
                         {
                             Name = "Bronn",
                             Race = Race.Human,
@@ -355,7 +355,7 @@ public class DataGenerator
                             Wisdom = 14,
                             Charisma = 14
                         },
-                        new Models.Character
+                        new Models.Character()
                         {
                             Name = "Petyr Baelish",
                             Race = Race.Human,
@@ -376,7 +376,7 @@ public class DataGenerator
                     Tagline = "And now our watch has ended...",
                     Characters = new List<Models.Character>()
                     {
-                        new Models.Character
+                        new Models.Character()
                         {
                             Name = "Samwell Tarly",
                             Race = Race.Human,
@@ -389,7 +389,7 @@ public class DataGenerator
                             Wisdom = 18,
                             Charisma = 6
                         },
-                        new Models.Character
+                        new Models.Character()
                         {
                             Name = "Jeor Mormont",
                             Race = Race.Human,
@@ -402,7 +402,7 @@ public class DataGenerator
                             Wisdom = 14,
                             Charisma = 16
                         },
-                        new Models.Character
+                        new Models.Character()
                         {
                             Name = "Eddison Tollett",
                             Race = Race.Human,
@@ -415,7 +415,7 @@ public class DataGenerator
                             Wisdom = 10,
                             Charisma = 10
                         },
-                        new Models.Character
+                        new Models.Character()
                         {
                             Name = "Maester Aemon",
                             Race = Race.Human,
@@ -430,6 +430,13 @@ public class DataGenerator
                         }
                     }
                 });
+
+            context.SaveChanges();
+
+            foreach (var p in context.Parties)
+            {
+                p.Characters = context.Characters.Where(c => c.PartyId == p.Id);
+            };
 
             context.SaveChanges();
         }
