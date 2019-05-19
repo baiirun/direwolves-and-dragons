@@ -56,12 +56,12 @@ const Card = styled.div`
     display: flex;
     flex-direction: column;
     width: 450px;
-    height: 275px;
+    height: 235px;
     margin-bottom: 54px;
     margin-right: 27px;
     padding: 13px 27px;
 
-    /* box-shadow: 0 10px 20px hsla(0, 0%, 27%, 0.08), 0 3px 6px hsla(0, 0%, 23%, 0.1); */
+    box-shadow: 0 10px 20px hsla(0, 0%, 27%, 0.08), 0 3px 6px hsla(0, 0%, 23%, 0.1);
 
     img {
         border-radius: 50%;

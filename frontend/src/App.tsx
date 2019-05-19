@@ -34,6 +34,7 @@ const GlobalStyles = createGlobalStyle`
         line-height: 1.5;
         font-family: 'Inter', sans-serif;
         font-variant-numeric: tabular-nums;
+        font-feature-settings: 'ss02' 1
         color: hsla(0, 0%, 21%, 1);
     }
 
