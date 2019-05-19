@@ -8,9 +8,9 @@ const PartiesContainer = () => {
 
     React.useEffect(() => {
         const loadParties = async () => {
+            // Normally there would be more robust error handling here
             const response = await fetch('https://localhost:5001/api/party');
             const result: Party[] = await response.json();
-            console.log(result);
             setParties(result);
         };
 

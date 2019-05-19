@@ -1,6 +1,8 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Character, Party } from './Types';
+import styled from 'styled-components';
+import CharacterCard from './CharacterCard';
 
 type Params = {
     id: string;
@@ -16,7 +18,7 @@ const CharactersContainer = (props: RouteComponentProps<Params>) => {
     // then the data won't exist in the location.state prop and nothing will render.
     React.useEffect(() => {
         const getPartyCharacters = async () => {
-            console.log(partyId);
+            // Normally there would be more robust error handling here
             const response = await fetch(`https://localhost:5001/api/party/${partyId}`);
             const result: Party = await response.json();
             setCharacters(result.characters);
@@ -25,7 +27,17 @@ const CharactersContainer = (props: RouteComponentProps<Params>) => {
         getPartyCharacters();
     }, [partyId]);
 
-    return characters.map((character) => <h2>{character.name}</h2>);
+    const Characters = characters.map((character) => <CharacterCard character={character} />);
+
+    return <Container>{Characters}</Container>;
 };
+
+const Container = styled.main`
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    margin: 0 auto;
+`;
 
 export default CharactersContainer;

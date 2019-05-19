@@ -20,8 +20,8 @@ public class DataGenerator
                 new Models.Character()
                 {
                     Name = "Melisandre",
-                    Race = Race.Human,
-                    Class = Class.Warlock,
+                    Race = Enum.GetName(typeof(Race), Race.Human),
+                    Class = Enum.GetName(typeof(Class), Class.Warlock),
                     Health = 1,
                     Strength = 4,
                     Dexterity = 2,
@@ -33,8 +33,8 @@ public class DataGenerator
                 new Models.Character()
                 {
                     Name = "Barristan Selmy",
-                    Race = Race.Human,
-                    Class = Class.Paladin,
+                    Race = Enum.GetName(typeof(Race), Race.Human),
+                    Class = Enum.GetName(typeof(Class), Class.Paladin),
                     Health = 51,
                     Strength = 14,
                     Dexterity = 16,
@@ -46,8 +46,8 @@ public class DataGenerator
                 new Models.Character()
                 {
                     Name = "Varys the Spider",
-                    Race = Race.Human,
-                    Class = Class.Bard,
+                    Race = Enum.GetName(typeof(Race), Race.Human),
+                    Class = Enum.GetName(typeof(Class), Class.Bard),
                     Health = 24,
                     Strength = 4,
                     Dexterity = 2,
@@ -77,8 +77,8 @@ public class DataGenerator
                         {
                             Name = "Jon Snow",
                             ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558192953/Jon_Snow.jpg",
-                            Race = Race.Human,
-                            Class = Class.Ranger,
+                            Race = Enum.GetName(typeof(Race), Race.Human),
+                            Class = Enum.GetName(typeof(Class), Class.Ranger),
                             Health = 50,
                             Strength = 16,
                             Dexterity = 15,
@@ -91,8 +91,8 @@ public class DataGenerator
                         {
                             Name = "Arya Stark",
                             ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558192953/Arya_Stark.jpg",
-                            Race = Race.Human,
-                            Class = Class.Rogue,
+                            Race = Enum.GetName(typeof(Race), Race.Human),
+                            Class = Enum.GetName(typeof(Class), Class.Rogue),
                             Health = 35,
                             Strength = 10,
                             Dexterity = 18,
@@ -105,8 +105,8 @@ public class DataGenerator
                         {
                             Name = "Sansa Stark",
                             ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558192954/Sansa_Stark.jpg",
-                            Race = Race.Human,
-                            Class = Class.Bard,
+                            Race = Enum.GetName(typeof(Race), Race.Human),
+                            Class = Enum.GetName(typeof(Class), Class.Bard),
                             Health = 28,
                             Strength = 6,
                             Dexterity = 6,
@@ -119,8 +119,8 @@ public class DataGenerator
                         {
                             Name = "Bran Stark",
                             ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558192953/Bran_Stark.jpg",
-                            Race = Race.Human,
-                            Class = Class.Druid,
+                            Race = Enum.GetName(typeof(Race), Race.Human),
+                            Class = Enum.GetName(typeof(Class), Class.Druid),
                             Health = 1,
                             Strength = 1,
                             Dexterity = 1,
@@ -142,8 +142,8 @@ public class DataGenerator
                         {
                             Name = "Daenerys",
                             ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558192953/Danaerys.jpg",
-                            Race = Race.Human,
-                            Class = Class.Sorcerer,  // Her Targaryen linear allows her to be Mother of Dragons
+                            Race = Enum.GetName(typeof(Race), Race.Human),
+                            Class = Enum.GetName(typeof(Class), Class.Sorcerer),  // Her Targaryen linear allows her to be Mother of Dragons
                             Health = 22,
                             Strength = 12,
                             Dexterity = 12,
@@ -156,8 +156,8 @@ public class DataGenerator
                         {
                             Name = "Jorah Mormont",
                             ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558192953/Jorah_Mormont.jpg",
-                            Race = Race.Human,
-                            Class = Class.Paladin,
+                            Race = Enum.GetName(typeof(Race), Race.Human),
+                            Class = Enum.GetName(typeof(Class), Class.Paladin),
                             Health = 65,
                             Strength = 16,
                             Dexterity = 15,
@@ -170,8 +170,8 @@ public class DataGenerator
                         {
                             Name = "Grey Worm",
                             ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558192953/Grey_Worm.jpg",
-                            Race = Race.Human,
-                            Class = Class.Monk,
+                            Race = Enum.GetName(typeof(Race), Race.Human),
+                            Class = Enum.GetName(typeof(Class), Class.Monk),
                             Health = 65,
                             Strength = 16,
                             Dexterity = 18,
@@ -184,8 +184,8 @@ public class DataGenerator
                         {
                             Name = "Tyrion Lannister",
                             ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558192954/Tyrion_Lannister.jpg",
-                            Race = Race.Dwarf,
-                            Class = Class.Bard,
+                            Race = Enum.GetName(typeof(Race), Race.Dwarf),
+                            Class = Enum.GetName(typeof(Class), Class.Bard),
                             Health = 24,
                             Strength = 4,
                             Dexterity = 8,
@@ -207,8 +207,8 @@ public class DataGenerator
                         {
                             Name = "Jamie Lannister",
                             ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558198213/Jamie.jpg",
-                            Race = Race.Human,
-                            Class = Class.Fighter,
+                            Race = Enum.GetName(typeof(Race), Race.Human),
+                            Class = Enum.GetName(typeof(Class), Class.Paladin),
                             Health = 50,
                             Strength = 16,
                             Dexterity = 12,
@@ -221,8 +221,8 @@ public class DataGenerator
                         {
                             Name = "Cersei Lannister",
                             ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558198213/Cersei.jpg",
-                            Race = Race.Human,
-                            Class = Class.Bard,
+                            Race = Enum.GetName(typeof(Race), Race.Human),
+                            Class = Enum.GetName(typeof(Class), Class.Bard),
                             Health = 18,
                             Strength = 8,
                             Dexterity = 12,
@@ -235,8 +235,8 @@ public class DataGenerator
                         {
                             Name = "Gregor Clegane",
                             ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558198213/Gregor.jpg",
-                            Race = Race.Human,
-                            Class = Class.Barbarian,
+                            Race = Enum.GetName(typeof(Race), Race.Human),
+                            Class = Enum.GetName(typeof(Class), Class.Barbarian),
                             Health = 99,
                             Strength = 18,
                             Dexterity = 10,
@@ -249,8 +249,8 @@ public class DataGenerator
                         {
                             Name = "Maester Qyburn",
                             ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558198213/Qyburn.jpg",
-                            Race = Race.Human,
-                            Class = Class.Warlock,
+                            Race = Enum.GetName(typeof(Race), Race.Human),
+                            Class = Enum.GetName(typeof(Class), Class.Warlock),
                             Health = 24,
                             Strength = 8,
                             Dexterity = 8,
@@ -272,8 +272,8 @@ public class DataGenerator
                         {
                             Name = "The Night King",
                             ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558199320/Night_King.jpg",
-                            Race = Race.DeathKnight,
-                            Class = Class.Sorcerer,
+                            Race = Enum.GetName(typeof(Race), Race.DeathKnight),
+                            Class = Enum.GetName(typeof(Class), Class.Sorcerer),
                             Health = 85,
                             Strength = 18,
                             Dexterity = 18,
@@ -286,8 +286,8 @@ public class DataGenerator
                         {
                             Name = "Wight Giant",
                             ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558199320/Wight_Giant.jpg",
-                            Race = Race.Giant,
-                            Class = Class.Barbarian,
+                            Race = Enum.GetName(typeof(Race), Race.Giant),
+                            Class = Enum.GetName(typeof(Class), Class.Barbarian),
                             Health = 150,
                             Strength = 18,
                             Dexterity = 10,
@@ -300,8 +300,8 @@ public class DataGenerator
                         {
                             Name = "Viserion",
                             ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558199320/Viserion.jpg",
-                            Race = Race.IceDragon,
-                            Class = Class.Wizard,
+                            Race = Enum.GetName(typeof(Race), Race.IceDragon),
+                            Class = Enum.GetName(typeof(Class), Class.Wizard),
                             Health = 350,
                             Strength = 18,
                             Dexterity = 18,
@@ -314,8 +314,8 @@ public class DataGenerator
                         {
                             Name = "Wight",
                             ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558199320/Wight.jpg",
-                            Race = Race.Zombie,
-                            Class = Class.Barbarian,
+                            Race = Enum.GetName(typeof(Race), Race.Zombie),
+                            Class = Enum.GetName(typeof(Class), Class.Barbarian),
                             Health = 25,
                             Strength = 12,
                             Dexterity = 18,
@@ -337,8 +337,8 @@ public class DataGenerator
                         {
                             Name = "Brienne of Tarth",
                             ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558199320/Brienne.jpg",
-                            Race = Race.Human,
-                            Class = Class.Paladin, // Closest thing to knight I think
+                            Race = Enum.GetName(typeof(Race), Race.Human),
+                            Class = Enum.GetName(typeof(Class), Class.Paladin), // Closest thing to knight I think
                             Health = 40,
                             Strength = 17,
                             Dexterity = 10,
@@ -351,8 +351,8 @@ public class DataGenerator
                         {
                             Name = "Davos Seaworth",
                             ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558199320/Davos.jpg",
-                            Race = Race.Human,
-                            Class = Class.Rogue,
+                            Race = Enum.GetName(typeof(Race), Race.Human),
+                            Class = Enum.GetName(typeof(Class), Class.Rogue),
                             Health = 24,
                             Strength = 12,
                             Dexterity = 16,
@@ -365,8 +365,8 @@ public class DataGenerator
                         {
                             Name = "Bronn",
                             ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558199320/Bronn.jpg",
-                            Race = Race.Human,
-                            Class = Class.Rogue,
+                            Race = Enum.GetName(typeof(Race), Race.Human),
+                            Class = Enum.GetName(typeof(Class), Class.Rogue),
                             Health = 48,
                             Strength = 14,
                             Dexterity = 16,
@@ -379,8 +379,8 @@ public class DataGenerator
                         {
                             Name = "Petyr Baelish",
                             ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558199320/Littlefinger.jpg",
-                            Race = Race.Human,
-                            Class = Class.Wizard,
+                            Race = Enum.GetName(typeof(Race), Race.Human),
+                            Class = Enum.GetName(typeof(Class), Class.Wizard),
                             Health = 24,
                             Strength = 4,
                             Dexterity = 2,
@@ -397,64 +397,64 @@ public class DataGenerator
                     Tagline = "And now our watch has ended...",
                     LogoUrl = "https://res.cloudinary.com/byronguina/image/upload/c_fit,f_auto,h_180,w_280/v1558197787/Night_Watch.png",
                     Characters = new List<Models.Character>()
-                    {
-                        new Models.Character()
                         {
-                            Name = "Samwell Tarly",
-                            ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558199541/Sam.jpg",
-                            Race = Race.Human,
-                            Class = Class.Bard,
-                            Health = 24,
-                            Strength = 14,
-                            Dexterity = 8,
-                            Constitution = 8,
-                            Intelligence = 18,
-                            Wisdom = 18,
-                            Charisma = 6
-                        },
-                        new Models.Character()
-                        {
-                            Name = "Jeor Mormont",
-                            ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558199320/Jeor.jpg",
-                            Race = Race.Human,
-                            Class = Class.Fighter,
-                            Health = 55,
-                            Strength = 15,
-                            Dexterity = 8,
-                            Constitution = 18,
-                            Intelligence = 12,
-                            Wisdom = 14,
-                            Charisma = 16
-                        },
-                        new Models.Character()
-                        {
-                            Name = "Eddison Tollett",
-                            ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558199320/Ed.jpg",
-                            Race = Race.Human,
-                            Class = Class.Fighter,
-                            Health = 38,
-                            Strength = 14,
-                            Dexterity = 12,
-                            Constitution = 12,
-                            Intelligence = 10,
-                            Wisdom = 10,
-                            Charisma = 10
-                        },
-                        new Models.Character()
-                        {
-                            Name = "Maester Aemon",
-                            ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558199320/Aemon.jpg",
-                            Race = Race.Human,
-                            Class = Class.Wizard,
-                            Health = 24,
-                            Strength = 4,
-                            Dexterity = 2,
-                            Constitution = 2,
-                            Intelligence = 18,
-                            Wisdom = 18,
-                            Charisma = 18
+                            new Models.Character()
+                            {
+                                Name = "Samwell Tarly",
+                                ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558199541/Sam.jpg",
+                                Race = Enum.GetName(typeof(Race), Race.Human),
+                                Class = Enum.GetName(typeof(Class), Class.Bard),
+                                Health = 24,
+                                Strength = 14,
+                                Dexterity = 8,
+                                Constitution = 8,
+                                Intelligence = 18,
+                                Wisdom = 18,
+                                Charisma = 6
+                            },
+                            new Models.Character()
+                            {
+                                Name = "Jeor Mormont",
+                                ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558199320/Jeor.jpg",
+                                Race = Enum.GetName(typeof(Race), Race.Human),
+                                Class = Enum.GetName(typeof(Class), Class.Fighter),
+                                Health = 55,
+                                Strength = 15,
+                                Dexterity = 8,
+                                Constitution = 18,
+                                Intelligence = 12,
+                                Wisdom = 14,
+                                Charisma = 16
+                            },
+                            new Models.Character()
+                            {
+                                Name = "Eddison Tollett",
+                                ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558199320/Ed.jpg",
+                                Race = Enum.GetName(typeof(Race), Race.Human),
+                                Class = Enum.GetName(typeof(Class), Class.Fighter),
+                                Health = 38,
+                                Strength = 14,
+                                Dexterity = 12,
+                                Constitution = 12,
+                                Intelligence = 10,
+                                Wisdom = 10,
+                                Charisma = 10
+                            },
+                            new Models.Character()
+                            {
+                                Name = "Maester Aemon",
+                                ImageUrl = "https://res.cloudinary.com/byronguina/image/upload/v1558199320/Aemon.jpg",
+                                Race = Enum.GetName(typeof(Race), Race.Human),
+                                Class = Enum.GetName(typeof(Class), Class.Wizard),
+                                Health = 24,
+                                Strength = 4,
+                                Dexterity = 2,
+                                Constitution = 2,
+                                Intelligence = 18,
+                                Wisdom = 18,
+                                Charisma = 18
+                            }
                         }
-                    }
                 });
 
             context.SaveChanges();

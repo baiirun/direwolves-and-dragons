@@ -11,5 +11,5 @@ public enum Class   // I'm glad Class doesn't get whacked as a reserved word her
     Rogue,
     Sorcerer,
     Warlock,
-    Wizard
+    Wizard,
 }

@@ -19,16 +19,21 @@ const App = () => {
     );
 };
 
+// Create some simple baseline styles
 const GlobalStyles = createGlobalStyle`
     @import url('https://rsms.me/inter/inter.css');
 
     body {
         background-color: #fafafa;
+        font-variant-numeric: tabular-nums;
+
     }
 
     html {
         font-size: 1.125;
+        line-height: 1.5;
         font-family: 'Inter', sans-serif;
+        font-variant-numeric: tabular-nums;
         color: hsla(0, 0%, 21%, 1);
     }
 
