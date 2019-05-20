@@ -46,5 +46,16 @@ namespace backend.Controllers
 
             return Ok(party);
         }
+
+        // POST: api/party
+        [HttpPost]
+        public async Task<ActionResult<Party>> PostParty(Party party)
+        {
+            // TODO: Add placeholder URL if doesn't exist?
+            _context.Parties.Add(party);
+            await _context.SaveChangesAsync();
+
+            return Ok(new Models.Party { Id = party.Id, Name = party.Name, Tagline = party.Tagline, LogoUrl = party.LogoUrl, Characters = party.Characters });
+        }
     }
 }

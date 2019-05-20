@@ -1,5 +1,5 @@
 export type Party = {
-    id: number;
+    id?: number;
     name: string;
     tagline: string;
     logoUrl: string;
@@ -7,7 +7,7 @@ export type Party = {
 };
 
 export type Character = {
-    id: number;
+    id?: number;
     name: string;
     race: string;
     class: string;
