@@ -6,7 +6,7 @@ The **frontend** is written using **React** with **TypeScript**; nothing too cra
 
 The **backend** is also a vanilla .NET Core REST API scaffolded using the `dotnet` CLI. I decided to use **Entity Framework Core's** `InMemoryProvider` to store information to meet the requirements for storing the data in memory.
 
-[](https://www.notion.so/ecc4286a34b54fbd9b352abe5f0d2d86#ba6564dc5ed24446aba514e71489c6c9)
+![Simple Architecture Diagram](https://www.notion.so/ecc4286a34b54fbd9b352abe5f0d2d86#ba6564dc5ed24446aba514e71489c6c9)
 
 ## Running **Direwolves** & Dragons Locally
 
@@ -21,11 +21,11 @@ The **backend** is also a vanilla .NET Core REST API scaffolded using the `dotne
 
 **Frontend**
 
-[](https://www.notion.so/ecc4286a34b54fbd9b352abe5f0d2d86#ffca4c2cd35b4a90ba7196d637847bc8)
+![Start frontend in development](https://www.notion.so/ecc4286a34b54fbd9b352abe5f0d2d86#ffca4c2cd35b4a90ba7196d637847bc8)
 
 **Backend**
 
-[](https://www.notion.so/ecc4286a34b54fbd9b352abe5f0d2d86#2ebf0118021a4ae78510afd18ea3478d)
+![Start backend in development](https://www.notion.so/resonance/Write-documentation-README-ecc4286a34b54fbd9b352abe5f0d2d86#ba6564dc5ed24446aba514e71489c6c9)
 
 You don't need to run any migration scripts for seeding data as I'm using Entity Framework Core's InMemory Provider and initializing the data when the application starts. 
 
