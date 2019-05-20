@@ -16,12 +16,13 @@ The **backend** is also a vanilla .NET Core REST API scaffolded using the `dotne
 - .NET Core 2.2?
 
 **Clone Repo**
-
-    git clone https://github.com/ByronGuina/direwolves-and-dragons
+```bash
+git clone https://github.com/ByronGuina/direwolves-and-dragons
+```
 
 **Frontend**
 
-```
+```bash
 cd frontend
 npm install # yarn
 npm start   # yarn start
@@ -29,7 +30,7 @@ npm start   # yarn start
 
 **Backend**
 
-```
+```bash
 cd backend
 dotnet run
 ```
