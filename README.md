@@ -6,7 +6,7 @@ The **frontend** is written using **React** with **TypeScript**; nothing too cra
 
 The **backend** is also a vanilla .NET Core REST API scaffolded using the `dotnet` CLI. I decided to use **Entity Framework Core's** `InMemoryProvider` to store information to meet the requirements for storing the data in memory.
 
-![Simple Architecture Diagram](https://www.notion.so/ecc4286a34b54fbd9b352abe5f0d2d86#ba6564dc5ed24446aba514e71489c6c9)
+![Simple Architecture Diagram](https://res.cloudinary.com/byronguina/image/upload/v1558377184/Architecture.png)
 
 ## Running **Direwolves** & Dragons Locally
 
@@ -21,11 +21,11 @@ The **backend** is also a vanilla .NET Core REST API scaffolded using the `dotne
 
 **Frontend**
 
-![Start frontend in development](https://www.notion.so/ecc4286a34b54fbd9b352abe5f0d2d86#ffca4c2cd35b4a90ba7196d637847bc8)
+![Start frontend in development](https://res.cloudinary.com/byronguina/image/upload/v1558377184/Frontend_Start.png)
 
 **Backend**
 
-![Start backend in development](https://www.notion.so/resonance/Write-documentation-README-ecc4286a34b54fbd9b352abe5f0d2d86#ba6564dc5ed24446aba514e71489c6c9)
+![Start backend in development](https://res.cloudinary.com/byronguina/image/upload/v1558377184/Backend_Start.png)
 
 You don't need to run any migration scripts for seeding data as I'm using Entity Framework Core's InMemory Provider and initializing the data when the application starts. 
 
