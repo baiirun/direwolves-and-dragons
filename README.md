@@ -21,11 +21,18 @@ The **backend** is also a vanilla .NET Core REST API scaffolded using the `dotne
 
 **Frontend**
 
-![Start frontend in development](https://res.cloudinary.com/byronguina/image/upload/v1558377184/Frontend_Start.png)
+```
+cd frontend
+npm install # yarn
+npm start   # yarn start
+```
 
 **Backend**
 
-![Start backend in development](https://res.cloudinary.com/byronguina/image/upload/v1558377184/Backend_Start.png)
+```
+cd backend
+dotnet run
+```
 
 You don't need to run any migration scripts for seeding data as I'm using Entity Framework Core's InMemory Provider and initializing the data when the application starts. 
 
@@ -40,7 +47,8 @@ See `backend/Data/DataGenerator.cs`
 - Initializing the data in for the InMemory Provider did not correctly associate Character data with a given Party. As a workaround I would have to search for the associated characters in the controller (using LINQ) and assign it to the Party before returning the data to the frontend. Normally this data would be more normalized and I would likely use a **join table** to associate the IDs between a Party and a Character.
 - Synchronizing the types between C# and TypeScript caused some difficulty, particularly with how differently C# and TypeScript handle values for enums. I wanted to be able to handle enum values as strings, and I ended up coming up with a solution to ensure the enum-based data (Race, Class) were correctly propagated between the client and server. 
 
-Now-a-days I tend to prefer to use [GraphQL](https://graphql.org/) over than REST-based APIs where possible. Since the GraphQL schema is typed and inspect-able, we get some really convenient tooling for generating client-side types based on our backend schema.
+    Now-a-days I tend to prefer to use [GraphQL](https://graphql.org/) over than REST-based APIs where possible. Since the GraphQL schema is typed and inspect-able, we get some really convenient tooling for generating client-side types based on our backend schema.
+    
 - Creating the initial 25+ characters with associated classes, races, stats, and images took longer than I expected. Thank you Twitch for giving me something to watch in the background while changing 500 lines one at a time.
 - We ended up with some duplicate data between the parties UI and the individual party UI (with characters). Normally I would optimize the data returned from the REST API to ensure we're getting as little unnecessary data as possible, but with an application this small and the amount of data I didn't think it was necessary to spend a lot of time on data optimization. Getting unnecessary data in a request is one of the shortcomings of REST APIs in general, and another reason I like using [GraphQL](https://graphql.org/) where I can.
 
