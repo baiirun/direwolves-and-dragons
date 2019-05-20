@@ -329,7 +329,7 @@ public class DataGenerator
                 new Models.Party
                 {
                     Name = "We Exist!",
-                    Tagline = "We're characters, too, you know...",
+                    Tagline = "The forgotten characters.",
                     LogoUrl = "https://res.cloudinary.com/byronguina/image/upload/c_fit,f_auto,h_180,w_250/v1558197786/Baelish.png",
                     Characters = new List<Models.Character>()
                     {
