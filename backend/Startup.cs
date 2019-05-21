@@ -39,7 +39,7 @@ namespace backend
 
                     // Allow any origin for the sake of the project. Normally we'd restrict origin domains
                     // to the domains we control.
-                    builder.AllowAnyHeader().AllowAnyOrigin();
+                    builder.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod();
                 });
             });
 

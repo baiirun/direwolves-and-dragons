@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PartyCard from './PartyCard';
 import { Party } from './Types';
 import PlaceholderPartyCard from './PlaceholderPartyCard';
+import * as api from '../api';
 
 const PartiesContainer = () => {
     const [parties, setParties] = React.useState<Party[]>([]);
@@ -17,47 +18,67 @@ const PartiesContainer = () => {
         };
 
         loadParties();
-    }, []);
+    }, [isEditing]);
 
-    const handleEditing = () => {
-        setIsEditing(!isEditing);
+    // Normally this would be abstracted to a client-side API layer
+    const createParty = async (newParty: Party) => {
+        try {
+            const party: Party = await api.createParty(newParty);
+            const newParties = [...parties, party];
+
+            setParties(newParties);
+        } catch (e) {
+            console.error(e);
+        }
     };
 
-    // TODO: Create handler for creating a new party
-    const createParty = async () => {
-        const party: Party = {
-            name: 'Testing Post',
-            tagline: 'Testing Post Oh yeah',
-            logoUrl: '',
-            characters: [],
-        };
-
-        const response = await fetch('http://localhost:5000/api/party', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(party),
-        });
-
-        const result: Party = await response.json();
-        const newParties = [...parties, result];
-
-        setParties(newParties);
+    const submitEditedParty = async (newParty: Party) => {
+        try {
+            await api.submitEditedParty(newParty);
+        } catch (e) {
+            console.error(e);
+        }
     };
 
-    const partyCards = parties.map((party) => <PartyCard party={party} />);
+    const deleteParty = async (newParty: Party) => {
+        try {
+            const deletedItem: Party = await api.deleteParty(newParty);
+            const newParties = parties.filter((p) => p.id !== deletedItem.id);
+            setParties(newParties);
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
+    let partyCards = parties.map((party) => <PartyCard key={party.id} party={party} />);
 
     if (isEditing) {
-        // TODO: Pass handler for creating a new party
-        partyCards.push(<PlaceholderPartyCard />);
+        partyCards = parties.map((party) => (
+            <PlaceholderPartyCard
+                party={party}
+                modifyPartyHandler={submitEditedParty}
+                deletePartyHandler={deleteParty}
+                type='edit'
+            />
+        ));
+        partyCards = [
+            ...partyCards,
+            <PlaceholderPartyCard
+                key='Placeholder card'
+                modifyPartyHandler={createParty}
+                deletePartyHandler={deleteParty}
+                type='create'
+            />,
+        ];
     }
 
     return (
         <Container>
             <HeaderContainer>
                 <h1>Parties</h1>
-                <EditButton onClick={createParty}>Create Team</EditButton>
+                <EditButton onClick={() => setIsEditing(!isEditing)}>
+                    {isEditing ? 'Cancel' : 'Create/Edit Parties'}
+                </EditButton>
             </HeaderContainer>
             <CardsContainer>{partyCards}</CardsContainer>
         </Container>

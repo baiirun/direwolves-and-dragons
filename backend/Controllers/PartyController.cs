@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Models;
 
 namespace backend.Controllers
@@ -51,11 +52,32 @@ namespace backend.Controllers
         [HttpPost]
         public async Task<ActionResult<Party>> PostParty(Party party)
         {
-            // TODO: Add placeholder URL if doesn't exist?
             _context.Parties.Add(party);
             await _context.SaveChangesAsync();
 
             return Ok(new Models.Party { Id = party.Id, Name = party.Name, Tagline = party.Tagline, LogoUrl = party.LogoUrl, Characters = party.Characters });
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Party>> PutParty(long id, Party party)
+        {
+            if (id != party.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(party).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Party>> Delete(long id)
+        {
+            var deletedItem = _context.Parties.Remove(_context.Parties.FirstOrDefault(p => p.Id == id)).Entity;
+            await _context.SaveChangesAsync();
+            return Ok(deletedItem);
         }
     }
 }
