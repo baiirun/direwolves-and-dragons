@@ -11,7 +11,7 @@ RUN dotnet publish -c Release -o out
 
 # Build runtime image
 FROM microsoft/dotnet:aspnetcore-runtime
-ENV ASPNETCORE_URLS http://*:5000 # <--- THIS LINE IS MISSING AND NEEDS ADDING!
+ENV ASPNETCORE_URLS http://*:5000
 WORKDIR /app
 COPY --from=build-env /app/out .
 EXPOSE 5000
