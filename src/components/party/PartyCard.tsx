@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { Party, Character } from './Types';
+import { Party, Character } from '../Types';
 
 type Props = {
     party: Party;

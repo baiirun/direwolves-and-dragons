@@ -1,4 +1,4 @@
-import PartiesContainer from './components/PartiesContainer';
+import PartiesContainer from './components/party/PartiesContainer';
 import PartyOverview from './components/character/CharactersContainer';
 
 // We could use the built-in react-router types

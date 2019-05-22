@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import PartyCard from './PartyCard';
-import { Party } from './Types';
 import PlaceholderPartyCard from './PlaceholderPartyCard';
-import * as api from '../api';
+import { Party } from '../Types';
+import * as api from '../../api';
 
 const PartiesContainer = () => {
     const [parties, setParties] = React.useState<Party[]>([]);
