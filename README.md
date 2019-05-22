@@ -1,4 +1,4 @@
-![badge](https://action-badges.now.sh/ByronGuina/direwolves-and-dragons)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1c079f73-9085-40db-b526-f860925e23ff/deploy-status)](https://app.netlify.com/sites/direwolves-and-dragons/deploys)
 
 ## Architecture
 
