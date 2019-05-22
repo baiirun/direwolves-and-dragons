@@ -32,7 +32,7 @@ const Card = styled(Link)`
     margin-right: 27px;
     margin-bottom: 54px;
     width: 250px;
-    height: 300px;
+    min-height: 300px;
     transition: 0.15s ease-out all;
 
     &:hover {

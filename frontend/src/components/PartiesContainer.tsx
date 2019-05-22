@@ -77,7 +77,7 @@ const PartiesContainer = () => {
             <HeaderContainer>
                 <h1>Parties</h1>
                 <EditButton onClick={() => setIsEditing(!isEditing)}>
-                    {isEditing ? 'Cancel' : 'Create/Edit Parties'}
+                    {isEditing ? 'Close' : 'Create/Edit Parties'}
                 </EditButton>
             </HeaderContainer>
             <CardsContainer>{partyCards}</CardsContainer>
@@ -108,6 +108,7 @@ const CardsContainer = styled.div`
 
 const EditButton = styled.button`
     position: relative;
+    border-radius: 4px;
     z-index: 1;
     font-size: 1rem;
     font-weight: 600;
@@ -131,6 +132,7 @@ const EditButton = styled.button`
         bottom: 0;
         left: -0.25em;
         right: -0.25em;
+        border-radius: 4px;
         background-color: hsla(341, 97%, 59%, 0.75);
         transform-origin: center right;
         transform: scaleX(0);

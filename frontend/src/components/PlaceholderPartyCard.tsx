@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Party } from './Types';
+import InputGroup from './form/InputGroup';
+import ButtonGroup from './form/ButtonGroup';
 
 type Props = {
     party?: Party;
@@ -24,11 +26,11 @@ const PlaceholderPartyCard = (props: Props) => {
         }
     }, [props.party]);
 
-    const submit = async (event: React.FormEvent<HTMLFormElement>) => {
+    const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         await props.modifyPartyHandler(party);
 
-        if (props.type == 'create') {
+        if (props.type === 'create') {
             setParty({
                 name: '',
                 tagline: '',
@@ -49,31 +51,29 @@ const PlaceholderPartyCard = (props: Props) => {
         });
     };
 
-    const onDelete = (event: React.MouseEvent<HTMLButtonElement>) => {
-        props.deletePartyHandler(party);
-    };
+    const onDelete = () => {};
 
     return (
-        <Form onSubmit={submit}>
-            <Container>
-                <Label>Party Name</Label>
-                <Input type='text' value={party.name} onChange={onInputChange('name')} />
-            </Container>
-            <Container>
-                <Label>Tag Line</Label>
-                <Input type='text' value={party.tagline} onChange={onInputChange('tagline')} />
-            </Container>
-            <Container>
-                <Label>Logo URL</Label>
-                <Input type='text' value={party.logoUrl} onChange={onInputChange('logoUrl')} />
-            </Container>
-            <input type='submit' value='Submit' />
-            {props.type == 'edit' ? <button onClick={onDelete}>Delete</button> : null}
+        <Form onSubmit={onSubmit}>
+            <InputsContainer>
+                <InputGroup placeholder="The Delving Dragons" label='Party Name' value={party.name} onChange={onInputChange('name')} type='text' />
+                <InputGroup placeholder="No challenge too great." label='Tag Line' value={party.tagline} onChange={onInputChange('tagline')} type='text' />
+                <InputGroup placeholder="https://google.com/image/example" label='Logo URL' value={party.logoUrl} onChange={onInputChange('logoUrl')} type='text' />
+            </InputsContainer>
+
+            <ButtonGroup
+                onDeleteClick={() => props.deletePartyHandler(party)}
+                isDeleteVisible={props.type === 'edit'}
+            />
         </Form>
     );
 };
 
 const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     border-radius: 4px;
     box-shadow: 0 10px 20px hsla(0, 0%, 27%, 0.08), 0 3px 6px hsla(0, 0%, 23%, 0.1);
     margin-right: 27px;
@@ -85,25 +85,13 @@ const Form = styled.form`
     &:hover,
     &:active,
     &:focus {
-        transform: translateY(-5px);
         box-shadow: 0 16px 32px hsla(0, 0%, 0%, 0.1), 0 3px 12px hsla(0, 0%, 15%, 0.05);
     }
 `;
 
-const Container = styled.div`
+const InputsContainer = styled.div`
     display: flex;
     flex-direction: column;
-    margin: 13px;
-`;
-
-const Label = styled.label`
-    font-size: 1rem;
-    font-weight: 400;
-`;
-
-const Input = styled.input`
-    font-size: 0.8rem;
-    padding: 2px 4px;
 `;
 
 export default PlaceholderPartyCard;
