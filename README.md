@@ -10,7 +10,7 @@ The **backend** is also a vanilla .NET Core REST API scaffolded using the `dotne
 
 ![Simple Architecture Diagram](https://res.cloudinary.com/byronguina/image/upload/v1558377184/Architecture.png)
 
-## Running **Direwolves** & Dragons Locally
+## Running **Direwolves & Dragons** Locally
 
 **Prerequisites**
 
@@ -40,6 +40,11 @@ You don't need to run any migration scripts for seeding data as I'm using Entity
 
 See `backend/Data/DataGenerator.cs`
 
+## You can also check out **Direwolves & Dragons** online! Sorta...
+
+The application frontend is hosted at [](https://direwolves-and-dragons.netlify.com) and the backend/API is hosted on Digital Ocean. Unfortunately I did not spin up the backend on Digital Ocean long ago enough to get SSL working in time (it can take 24-48+ hours for the public domain name to propagate to the necessary DNS). Because the frontend is using SSL/HTTPS and the backend isn't (as of 5/22), most browsers block the request for safety reasons.
+
+It _might_ still work if you disable HTTPS in your browser for the Direwolves & Dragon URL. Double unfortunately, Chrome doesn't care if you do that and will attempt to use HTTPS and block the mixed HTTP/HTTPS request anyway. I _was_ able to get it working on an Edge Chromium build. Hopefully the SSL stuff propagates before you check this out so you can see my sweet deployment set up. I'll be watching it in the meantime.
 
 ## Issues I encountered
 
