@@ -1,0 +1,17 @@
+FROM microsoft/dotnet:sdk AS build-env
+WORKDIR /app
+
+# Copy csproj and restore as distinct layers
+COPY *.csproj ./
+RUN dotnet restore
+
+# Copy everything else and build
+COPY . ./
+RUN dotnet publish -c Release -o out
+
+# Build runtime image
+FROM microsoft/dotnet:aspnetcore-runtime
+ENV ASPNETCORE_URLS http://*:5000 # <--- THIS LINE IS MISSING AND NEEDS ADDING!
+WORKDIR /app
+COPY --from=build-env /app/out .
+ENTRYPOINT ["dotnet", "backend.dll"]
