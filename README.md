@@ -40,11 +40,6 @@ You don't need to run any migration scripts for seeding data as I'm using Entity
 
 See `backend/Data/DataGenerator.cs`
 
-## Direwolves & Dragons hosted
-
-You can try out **Direwolves & Dragons** _without_ spinning up a local environment!
-
-Just visit https://direwolves-and-dragons.netlify.com
 
 ## Issues I encountered
 
@@ -55,7 +50,7 @@ Just visit https://direwolves-and-dragons.netlify.com
     Now-a-days I tend to prefer to use [GraphQL](https://graphql.org/) over than REST-based APIs where possible. Since the GraphQL schema is typed and inspect-able, we get some really convenient tooling for generating client-side types based on our backend schema.
     
 - Creating the initial 25+ characters with associated classes, races, stats, and images took longer than I expected. Thank you Twitch for giving me something to watch in the background while changing 500 lines one at a time.
-- We ended up with some duplicate data between the parties UI and the individual party UI (with characters). Normally I would optimize the data returned from the REST API to ensure we're getting as little unnecessary data as possible, but with an application this small and the amount of data I didn't think it was necessary to spend a lot of time on data optimization. Getting unnecessary data in a request is one of the shortcomings of REST APIs in general, and another reason I like using [GraphQL](https://graphql.org/) where I can.
+- We ended up with some duplicate data between the parties UI and the individual party UI (with characters). Normally I would optimize the data returned from the REST API to ensure we're getting as little unnecessary data as possible, but with an application this small and the amount of data I didn't think it was necessary to spend a lot of time on data optimization. Getting unnecessary data in a request is one of the shortcomings of REST APIs in general, and another reason I like using [GraphQL](https://www.howtographql.com/basics/1-graphql-is-the-better-rest/) where I can.
 
 ## Logical next steps to improve the app
 
