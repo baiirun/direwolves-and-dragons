@@ -24,7 +24,7 @@ const GlobalStyles = createGlobalStyle`
     @import url('https://rsms.me/inter/inter.css');
 
     body {
-        background-color: #fafafa;
+        background-color: hsla(0, 0%, 98%, 1);
         font-variant-numeric: tabular-nums;
 
     }

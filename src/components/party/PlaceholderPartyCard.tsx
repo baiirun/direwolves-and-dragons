@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Party } from '../Types';
 import InputGroup from '../form/InputGroup';
 import ButtonGroup from '../form/ButtonGroup';
-import * as api from '../../api';
 
 type Props = {
     party?: Party;

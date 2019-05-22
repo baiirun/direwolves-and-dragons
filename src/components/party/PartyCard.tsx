@@ -86,7 +86,7 @@ const CharacterAvatar = styled.img`
     width: 35px;
     height: 35px;
     margin-right: -12px;
-    border: 3px solid #fff;
+    border: 3px solid hsla(0, 0%, 100%, 1);
     object-fit: cover;
 `;
 

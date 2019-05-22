@@ -44,7 +44,7 @@ const Button = styled.input`
     ${BaseButton};
     background-color: #0070f3;
     box-shadow: 0 10px 20px hsla(0, 0%, 27%, 0.15), 0 3px 6px hsla(0, 0%, 23%, 0.15);
-    color: #fff;
+    color: hsla(0, 0%, 100%, 1);
 
     &:hover,
     &:active,
@@ -61,7 +61,6 @@ const DeleteButton = styled.button`
     &:active,
     &:focus {
         color: hsla(348, 100%, 25%, 1);
-        /* background-color: rgba(0, 118, 255, 0.1); */
         background-color: hsla(348, 100%, 85%, 0.85);
     }
 `;
