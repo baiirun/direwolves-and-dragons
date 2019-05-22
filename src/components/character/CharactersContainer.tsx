@@ -38,7 +38,6 @@ const CharactersContainer = (props: RouteComponentProps<UrlParams>) => {
             const newCharacterWithParty = newCharacter;
             newCharacterWithParty.partyId = parseInt(partyId);
             const character = await api.createCharacter(newCharacter);
-            console.log(character);
             const newCharacters = [...characters, character];
 
             setCharacters(newCharacters);

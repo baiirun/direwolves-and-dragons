@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Party } from '../Types';
 import InputGroup from '../form/InputGroup';
 import ButtonGroup from '../form/ButtonGroup';
+import * as api from '../../api';
 
 type Props = {
     party?: Party;
@@ -12,6 +13,7 @@ type Props = {
 };
 
 const PlaceholderPartyCard = (props: Props) => {
+    const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false);
     const [party, setParty] = React.useState<Party>({
         name: '',
         tagline: '',
@@ -28,6 +30,8 @@ const PlaceholderPartyCard = (props: Props) => {
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+
+        setIsSubmitting(true);
         await props.modifyPartyHandler(party);
 
         if (props.type === 'create') {
@@ -39,6 +43,8 @@ const PlaceholderPartyCard = (props: Props) => {
                 characters: [],
             });
         }
+
+        setIsSubmitting(false);
     };
 
     const onInputChange = (field: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -52,7 +58,7 @@ const PlaceholderPartyCard = (props: Props) => {
     };
 
     return (
-        <Form onSubmit={onSubmit}>
+        <Form onSubmit={onSubmit} id='new-party' type={props.type}>
             <InputsContainer>
                 <InputGroup
                     placeholder='The Delving Dragons'
@@ -80,18 +86,25 @@ const PlaceholderPartyCard = (props: Props) => {
             <ButtonGroup
                 onDeleteClick={() => props.deletePartyHandler(party)}
                 isDeleteVisible={props.type === 'edit'}
+                isLoading={isSubmitting}
             />
         </Form>
     );
 };
 
-const Form = styled.form`
+const Form = styled('form')<{ type: 'create' | 'edit' }>`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
     border-radius: 4px;
-    box-shadow: 0 10px 20px hsla(0, 0%, 27%, 0.08), 0 3px 6px hsla(0, 0%, 23%, 0.1);
+    /* box-shadow: 0 10px 20px hsla(0, 0%, 27%, 0.08), 0 3px 6px hsla(0, 0%, 23%, 0.1); */
+    box-shadow: ${(
+        props: any, // styled-components typing is very annoying
+    ) =>
+        props.type === 'create'
+            ? '0 10px 20px hsla(146, 100%, 44%, 0.30), 0 3px 6px hsla(146, 100%, 23%, 0.15)'
+            : '0 10px 20px hsla(0, 0%, 27%, 0.08), 0 3px 6px hsla(0, 0%, 23%, 0.1)'};
     margin-right: 27px;
     margin-bottom: 54px;
     width: 250px;

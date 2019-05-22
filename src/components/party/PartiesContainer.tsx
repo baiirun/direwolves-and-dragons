@@ -17,6 +17,13 @@ const PartiesContainer = () => {
             setParties(result);
         };
 
+        if (isEditing === true) {
+            const newPartyCardId = document.getElementById('new-party');
+            if (newPartyCardId) {
+                newPartyCardId.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
         loadParties();
     }, [isEditing]);
 
@@ -111,7 +118,7 @@ const EditButton = styled.button`
     z-index: 1;
     font-size: 1rem;
     font-weight: 600;
-    padding: 8px 12px;
+    padding: 12px 16px;
     background-color: transparent;
     border: none;
     cursor: pointer;

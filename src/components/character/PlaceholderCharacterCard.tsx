@@ -12,6 +12,7 @@ type Props = {
 };
 
 const PlaceholderCharacterCard = (props: Props) => {
+    const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false);
     const [character, setCharacter] = React.useState<Character>({
         id: -1,
         name: '',
@@ -36,7 +37,8 @@ const PlaceholderCharacterCard = (props: Props) => {
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        console.log(character);
+
+        setIsSubmitting(true);
         await props.modifyCharacterHandler(character);
 
         // Handle clearing the state if we are creating a new character to edit
@@ -57,6 +59,8 @@ const PlaceholderCharacterCard = (props: Props) => {
                 partyId: -1,
             });
         }
+
+        setIsSubmitting(false);
     };
 
     const onInputChange = (field: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -166,6 +170,7 @@ const PlaceholderCharacterCard = (props: Props) => {
             <ButtonGroup
                 isDeleteVisible={props.type === 'edit'}
                 onDeleteClick={() => props.deleteCharacterHandler(character)}
+                isLoading={isSubmitting}
             />
         </Form>
     );

@@ -4,13 +4,18 @@ import styled, { css } from 'styled-components';
 type Props = {
     isDeleteVisible: boolean;
     onDeleteClick: () => void;
+    isLoading: boolean;
 };
 
-const ButtonGroup = ({ isDeleteVisible, onDeleteClick }: Props) => {
+const ButtonGroup = ({ isDeleteVisible, onDeleteClick, isLoading }: Props) => {
     return (
         <ButtonsContainer>
-            <Button type='submit' value='Submit' />
-            {isDeleteVisible ? <DeleteButton onClick={onDeleteClick}>Delete</DeleteButton> : null}
+            <Button type='submit' value='Submit' disabled={isLoading} />
+            {isDeleteVisible ? (
+                <DeleteButton onClick={onDeleteClick} disabled={isLoading}>
+                    Delete
+                </DeleteButton>
+            ) : null}
         </ButtonsContainer>
     );
 };
