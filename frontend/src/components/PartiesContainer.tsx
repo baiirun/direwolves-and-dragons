@@ -102,8 +102,6 @@ const CardsContainer = styled.div`
     display: flex;
     align-content: center;
     flex-wrap: wrap;
-
-    max-width: 1400px;
 `;
 
 const EditButton = styled.button`

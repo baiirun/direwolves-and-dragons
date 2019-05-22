@@ -1,5 +1,5 @@
 import PartiesContainer from './components/PartiesContainer';
-import PartyOverview from './components/CharactersContainer';
+import PartyOverview from './components/character/CharactersContainer';
 
 // We could use the built-in react-router types
 // but we don't need a lot of the properties
