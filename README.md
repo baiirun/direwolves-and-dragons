@@ -1,3 +1,5 @@
+![badge](https://action-badges.now.sh/ByronGuina/direwolves-and-dragons)
+
 ## Architecture
 
 I decided to create a fully-separated architecture with a frontend being deployed/developed separately from the backend/REST API. This would allow us to have multiple clients interface (in the case we're developing mobile applications or smart devices or anything else that needs the API) with the API since there is no coupling involved between the backend and the consumer.
