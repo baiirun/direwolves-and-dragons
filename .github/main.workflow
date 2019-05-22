@@ -1,17 +1,6 @@
 workflow "CI/CD" {
   on = "push"
-  resolves = ["Backend - build", "Frontend - build"]
-}
-
-action "Backend - install dependencies" {
-  uses = "baruchiro/github-actions@0.0.1"
-  args = "cd backend && dotnet restore"
-}
-
-action "Backend - build" {
-  uses = "baruchiro/github-actions@0.0.1"
-  needs = ["Backend - install dependencies"]
-  args = "cd backend && dotnet build"
+  resolves = ["Frontend - build"]
 }
 
 action "Frontend - install dependencies" {
