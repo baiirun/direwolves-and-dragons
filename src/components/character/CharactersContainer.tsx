@@ -24,10 +24,9 @@ const CharactersContainer = (props: RouteComponentProps<UrlParams>) => {
     React.useEffect(() => {
         const getPartyCharacters = async () => {
             // Normally there would be more robust error handling here
-            const response = await fetch(`http://localhost:5000/api/party/${partyId}`);
-            const result: Party = await response.json();
-            setPartyName(result.name);
-            setCharacters(result.characters);
+            const newParty = await api.getParty(partyId);
+            setPartyName(newParty.name);
+            setCharacters(newParty.characters);
         };
 
         getPartyCharacters();

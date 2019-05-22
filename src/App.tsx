@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 import Navigation from './components/Navigation';
 import routes from './routes';
@@ -12,6 +12,7 @@ const App = () => {
 
     return (
         <>
+            {/* Not sure why there's a typescript error here... */}
             <GlobalStyles />
             <Navigation />
             <Switch>{Routes}</Switch>

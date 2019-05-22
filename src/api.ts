@@ -1,9 +1,28 @@
 import { Party, Character } from './components/Types';
 
+// Set production url vs. development. I'm setting the default
+// url here so the person testing this doesn't have to create a
+// `.env` file :)
+const baseUrl = process.env.REACT_APP_ENDPOINT_URL || 'http://localhost:5000';
+
 // Normally this would be more generic and better abstracted as an API layer
+export const getParties = async () => {
+    // Normally would be more robust error handling
+    const response = await fetch(`${baseUrl}/api/party`);
+    const parties: Party[] = await response.json();
+    return parties;
+};
+
+export const getParty = async (id: string) => {
+    const partyId = parseInt(id);
+    const response = await fetch(`${baseUrl}/api/party/${partyId}`);
+    const parties: Party = await response.json();
+    return parties;
+};
+
 export const createParty = async (newParty: Party) => {
     try {
-        const response = await fetch('http://localhost:5000/api/party', {
+        const response = await fetch(`${baseUrl}/api/party`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -25,7 +44,7 @@ export const createParty = async (newParty: Party) => {
 
 export const submitEditedParty = async (updatedParty: Party) => {
     try {
-        await fetch(`http://localhost:5000/api/party/${updatedParty.id}`, {
+        await fetch(`${baseUrl}/api/party/${updatedParty.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -39,7 +58,7 @@ export const submitEditedParty = async (updatedParty: Party) => {
 
 export const deleteParty = async (partyToDelete: Party) => {
     try {
-        const response = await fetch(`http://localhost:5000/api/party/${partyToDelete.id}`, {
+        const response = await fetch(`${baseUrl}/api/party/${partyToDelete.id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -56,7 +75,7 @@ export const deleteParty = async (partyToDelete: Party) => {
 
 export const createCharacter = async (newCharacter: Character) => {
     try {
-        const response = await fetch('http://localhost:5000/api/character', {
+        const response = await fetch(`${baseUrl}/api/character`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -86,7 +105,7 @@ export const createCharacter = async (newCharacter: Character) => {
 
 export const submitEditedCharacter = async (updatedCharacter: Character) => {
     try {
-        await fetch(`http://localhost:5000/api/character/${updatedCharacter.id}`, {
+        await fetch(`${baseUrl}/api/character/${updatedCharacter.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -100,7 +119,7 @@ export const submitEditedCharacter = async (updatedCharacter: Character) => {
 
 export const deleteCharacter = async (characterToDelete: Character) => {
     try {
-        const response = await fetch(`http://localhost:5000/api/character/${characterToDelete.id}`, {
+        const response = await fetch(`${baseUrl}/api/character/${characterToDelete.id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

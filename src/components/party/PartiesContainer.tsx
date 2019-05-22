@@ -12,9 +12,8 @@ const PartiesContainer = () => {
     React.useEffect(() => {
         const loadParties = async () => {
             // Normally there would be more robust error handling here
-            const response = await fetch('http://localhost:5000/api/party');
-            const result: Party[] = await response.json();
-            setParties(result);
+            const newParties = await api.getParties();
+            setParties(newParties);
         };
 
         if (isEditing === true) {
