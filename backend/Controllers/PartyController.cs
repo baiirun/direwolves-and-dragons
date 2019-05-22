@@ -19,7 +19,7 @@ namespace backend.Controllers
             _context = context;
         }
 
-        // GET api/values
+        // GET api/party
         [HttpGet]
         public ActionResult<IEnumerable<Party>> Get()
         {

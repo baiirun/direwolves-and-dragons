@@ -3,13 +3,17 @@ import { RouteComponentProps } from 'react-router';
 import { Character, Party } from '../Types';
 import styled from 'styled-components';
 import CharacterCard from './CharacterCard';
+import PlaceholderCharacterCard from './PlaceholderCharacterCard';
+import * as api from '../../api';
 
-type Params = {
+type UrlParams = {
     id: string;
 };
 
-const CharactersContainer = (props: RouteComponentProps<Params>) => {
+const CharactersContainer = (props: RouteComponentProps<UrlParams>) => {
     const [characters, setCharacters] = React.useState<Character[]>([]);
+    const [isEditing, setIsEditing] = React.useState<boolean>(false);
+
     const { id: partyId } = props.match.params;
 
     // Technically we have this data already in `PartiesContainer`, but we want
@@ -27,21 +31,64 @@ const CharactersContainer = (props: RouteComponentProps<Params>) => {
         getPartyCharacters();
     }, [partyId]);
 
+    const createCharacter = async (newCharacter: Character) => {
+        try {
+            const newCharacterWithParty = newCharacter;
+            newCharacterWithParty.partyId = parseInt(partyId);
+            const character = await api.createCharacter(newCharacter);
+            console.log(character);
+            const newCharacters = [...characters, character];
+
+            setCharacters(newCharacters);
+        } catch (e) {
+            console.error(e);
+        }
+    };
+    const submitEditedCharacter = async (newCharacter: Character) => {};
+    const deleteCharacter = async (newCharacter: Character) => {};
+
     /**
      * TODO:
      * Change to placeholder cards if we are in edit mode
      * Do the same edit/submit/delete workflow as the parties
      */
 
-    const Characters = characters.map((character) => <CharacterCard character={character} />);
+    let characterCards = characters.map((character) => <CharacterCard key={character.id} character={character} />);
+
+    if (isEditing) {
+        characterCards = characters.map((character) => (
+            <PlaceholderCharacterCard
+                key={character.id}
+                character={character}
+                type='edit'
+                modifyCharacterHandler={submitEditedCharacter}
+                deleteCharacterHandler={deleteCharacter}
+            />
+        ));
+
+        // Set an artbirary limit on 4 characters per party
+        if (characterCards.length < 4) {
+            characterCards = [
+                ...characterCards,
+                <PlaceholderCharacterCard
+                    key={-1}
+                    type='create'
+                    modifyCharacterHandler={createCharacter}
+                    deleteCharacterHandler={deleteCharacter}
+                />,
+            ];
+        }
+    }
 
     return (
         <Container>
             <HeaderContainer>
                 <h1>Characters</h1>
-                <EditButton>Create/Edit Characters</EditButton>
+                <EditButton onClick={() => setIsEditing(!isEditing)}>
+                    {isEditing ? 'Close' : 'Create/Edit Characters'}
+                </EditButton>
             </HeaderContainer>
-            <CardsContainer>{Characters}</CardsContainer>
+            <CardsContainer>{characterCards}</CardsContainer>
         </Container>
     );
 };

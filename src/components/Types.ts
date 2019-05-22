@@ -19,4 +19,5 @@ export type Character = {
     intelligence: number;
     wisdom: number;
     charisma: number;
+    partyId: number;
 };

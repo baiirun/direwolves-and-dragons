@@ -9,7 +9,7 @@ type Props = {
 
 const PartyCard = ({ party }: Props) => {
     const characters = party.characters.map((character: Character) => (
-        <CharacterAvatar alt={`Character avatar of ${character.name}`} key={character.id} src={character.imageUrl} />
+        <CharacterAvatar key={character.id} src={character.imageUrl} />
     ));
 
     return (

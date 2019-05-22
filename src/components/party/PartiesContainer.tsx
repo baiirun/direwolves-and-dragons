@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import PartyCard from './PartyCard';
 import PlaceholderPartyCard from './PlaceholderPartyCard';
-import { Party } from '../Types';
 import * as api from '../../api';
+import { Party } from '../Types';
 
 const PartiesContainer = () => {
     const [parties, setParties] = React.useState<Party[]>([]);
@@ -55,6 +55,7 @@ const PartiesContainer = () => {
     if (isEditing) {
         partyCards = parties.map((party) => (
             <PlaceholderPartyCard
+                key={party.id}
                 party={party}
                 modifyPartyHandler={submitEditedParty}
                 deletePartyHandler={deleteParty}
@@ -64,7 +65,7 @@ const PartiesContainer = () => {
         partyCards = [
             ...partyCards,
             <PlaceholderPartyCard
-                key='Placeholder card'
+                key={-1}
                 modifyPartyHandler={createParty}
                 deletePartyHandler={deleteParty}
                 type='create'

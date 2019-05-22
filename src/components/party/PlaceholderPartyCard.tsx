@@ -51,8 +51,6 @@ const PlaceholderPartyCard = (props: Props) => {
         });
     };
 
-    const onDelete = () => {};
-
     return (
         <Form onSubmit={onSubmit}>
             <InputsContainer>
@@ -71,7 +69,7 @@ const PlaceholderPartyCard = (props: Props) => {
                     type='text'
                 />
                 <InputGroup
-                    placeholder='https://google.com/image/example'
+                    placeholder='https://gameofthrones.fandom.com/example.webp'
                     label='Logo URL'
                     value={party.logoUrl}
                     onChange={onInputChange('logoUrl')}
