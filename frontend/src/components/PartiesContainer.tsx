@@ -133,7 +133,8 @@ const EditButton = styled.button`
         left: -0.25em;
         right: -0.25em;
         border-radius: 4px;
-        background-color: hsla(341, 97%, 59%, 0.75);
+        background-color: #0070f3;
+        opacity: 0.35;
         transform-origin: center right;
         transform: scaleX(0);
         transition: transform 0.25s ease-out;

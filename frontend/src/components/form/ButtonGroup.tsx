@@ -55,7 +55,9 @@ const DeleteButton = styled.button`
     &:hover,
     &:active,
     &:focus {
-        background-color: rgba(0, 118, 255, 0.1);
+        color: hsla(348, 100%, 25%, 1);
+        /* background-color: rgba(0, 118, 255, 0.1); */
+        background-color: hsla(348, 100%, 85%, 0.85);
     }
 `;
 
