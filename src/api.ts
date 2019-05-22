@@ -1,6 +1,6 @@
 import { Party, Character } from './components/Types';
 
-// Normally this would be abstracted to a client-side API layer
+// Normally this would be more generic and better abstracted as an API layer
 export const createParty = async (newParty: Party) => {
     try {
         const response = await fetch('http://localhost:5000/api/party', {
@@ -23,28 +23,28 @@ export const createParty = async (newParty: Party) => {
     }
 };
 
-export const submitEditedParty = async (newParty: Party) => {
+export const submitEditedParty = async (updatedParty: Party) => {
     try {
-        await fetch(`http://localhost:5000/api/party/${newParty.id}`, {
+        await fetch(`http://localhost:5000/api/party/${updatedParty.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(newParty),
+            body: JSON.stringify(updatedParty),
         });
     } catch (e) {
         console.error(e);
     }
 };
 
-export const deleteParty = async (newParty: Party) => {
+export const deleteParty = async (partyToDelete: Party) => {
     try {
-        const response = await fetch(`http://localhost:5000/api/party/${newParty.id}`, {
+        const response = await fetch(`http://localhost:5000/api/party/${partyToDelete.id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(newParty),
+            body: JSON.stringify(partyToDelete),
         });
 
         const deletedItem: Party = await response.json();
@@ -84,28 +84,28 @@ export const createCharacter = async (newCharacter: Character) => {
     }
 };
 
-export const submitEditedCharacter = async (newParty: Party) => {
+export const submitEditedCharacter = async (updatedCharacter: Character) => {
     try {
-        await fetch(`http://localhost:5000/api/party/${newParty.id}`, {
+        await fetch(`http://localhost:5000/api/character/${updatedCharacter.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(newParty),
+            body: JSON.stringify(updatedCharacter),
         });
     } catch (e) {
         console.error(e);
     }
 };
 
-export const deleteCharacter = async (newParty: Party) => {
+export const deleteCharacter = async (characterToDelete: Character) => {
     try {
-        const response = await fetch(`http://localhost:5000/api/party/${newParty.id}`, {
+        const response = await fetch(`http://localhost:5000/api/character/${characterToDelete.id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(newParty),
+            body: JSON.stringify(characterToDelete),
         });
 
         const deletedItem: Party = await response.json();

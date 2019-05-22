@@ -32,17 +32,17 @@ const PartiesContainer = () => {
         }
     };
 
-    const submitEditedParty = async (newParty: Party) => {
+    const submitEditedParty = async (updatedParty: Party) => {
         try {
-            await api.submitEditedParty(newParty);
+            await api.submitEditedParty(updatedParty);
         } catch (e) {
             console.error(e);
         }
     };
 
-    const deleteParty = async (newParty: Party) => {
+    const deleteParty = async (partyToDelete: Party) => {
         try {
-            const deletedItem: Party = await api.deleteParty(newParty);
+            const deletedItem: Party = await api.deleteParty(partyToDelete);
             const newParties = parties.filter((p) => p.id !== deletedItem.id);
             setParties(newParties);
         } catch (e) {

@@ -163,7 +163,10 @@ const PlaceholderCharacterCard = (props: Props) => {
                     onChange={onStatChange('charisma')}
                 />
             </StatsContainer>
-            <ButtonGroup isDeleteVisible={true} onDeleteClick={() => props.deleteCharacterHandler(character)} />
+            <ButtonGroup
+                isDeleteVisible={props.type === 'edit'}
+                onDeleteClick={() => props.deleteCharacterHandler(character)}
+            />
         </Form>
     );
 };

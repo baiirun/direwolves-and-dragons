@@ -79,7 +79,7 @@ namespace backend.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Party>> Delete(long id)
+        public async Task<ActionResult<Character>> Delete(long id)
         {
             var deletedItem = _context.Characters.Remove(_context.Characters.FirstOrDefault(p => p.Id == id)).Entity;
             await _context.SaveChangesAsync();

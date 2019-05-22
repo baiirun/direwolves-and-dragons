@@ -11,6 +11,7 @@ type UrlParams = {
 };
 
 const CharactersContainer = (props: RouteComponentProps<UrlParams>) => {
+    const [partyName, setPartyName] = React.useState<string>('');
     const [characters, setCharacters] = React.useState<Character[]>([]);
     const [isEditing, setIsEditing] = React.useState<boolean>(false);
 
@@ -25,11 +26,12 @@ const CharactersContainer = (props: RouteComponentProps<UrlParams>) => {
             // Normally there would be more robust error handling here
             const response = await fetch(`http://localhost:5000/api/party/${partyId}`);
             const result: Party = await response.json();
+            setPartyName(result.name);
             setCharacters(result.characters);
         };
 
         getPartyCharacters();
-    }, [partyId]);
+    }, [partyId, isEditing]);
 
     const createCharacter = async (newCharacter: Character) => {
         try {
@@ -44,14 +46,22 @@ const CharactersContainer = (props: RouteComponentProps<UrlParams>) => {
             console.error(e);
         }
     };
-    const submitEditedCharacter = async (newCharacter: Character) => {};
-    const deleteCharacter = async (newCharacter: Character) => {};
-
-    /**
-     * TODO:
-     * Change to placeholder cards if we are in edit mode
-     * Do the same edit/submit/delete workflow as the parties
-     */
+    const submitEditedCharacter = async (updatedCharacter: Character) => {
+        try {
+            await api.submitEditedCharacter(updatedCharacter);
+        } catch (e) {
+            console.error(e);
+        }
+    };
+    const deleteCharacter = async (characterToDelete: Character) => {
+        try {
+            const deletedItem: Party = await api.deleteCharacter(characterToDelete);
+            const newCharacters = characters.filter((p) => p.id !== deletedItem.id);
+            setCharacters(newCharacters);
+        } catch (e) {
+            console.error(e);
+        }
+    };
 
     let characterCards = characters.map((character) => <CharacterCard key={character.id} character={character} />);
 
@@ -83,7 +93,9 @@ const CharactersContainer = (props: RouteComponentProps<UrlParams>) => {
     return (
         <Container>
             <HeaderContainer>
-                <h1>Characters</h1>
+                <h1>
+                    {partyName} <span>Characters</span>
+                </h1>
                 <EditButton onClick={() => setIsEditing(!isEditing)}>
                     {isEditing ? 'Close' : 'Create/Edit Characters'}
                 </EditButton>
@@ -104,6 +116,10 @@ const HeaderContainer = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    span {
+        font-weight: 300;
+    }
 `;
 
 const CardsContainer = styled.div`

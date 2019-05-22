@@ -8,7 +8,7 @@ type Props = {
     party?: Party;
     type: 'create' | 'edit';
     modifyPartyHandler: (newParty: Party) => Promise<void>;
-    deletePartyHandler: (newParty: Party) => Promise<void>;
+    deletePartyHandler: (partyToDelete: Party) => Promise<void>;
 };
 
 const PlaceholderPartyCard = (props: Props) => {
