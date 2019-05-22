@@ -14,4 +14,5 @@ FROM microsoft/dotnet:aspnetcore-runtime
 ENV ASPNETCORE_URLS http://*:5000 # <--- THIS LINE IS MISSING AND NEEDS ADDING!
 WORKDIR /app
 COPY --from=build-env /app/out .
+EXPOSE 5000
 ENTRYPOINT ["dotnet", "backend.dll"]
