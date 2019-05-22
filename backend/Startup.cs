@@ -14,61 +14,61 @@ using Microsoft.Extensions.Options;
 
 namespace backend
 {
-    public class Startup
+  public class Startup
+  {
+    public Startup(IConfiguration configuration)
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
-
-        public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddCors(options =>
-            {
-                options.AddPolicy("MyCors",
-                builder =>
-                {
-                    // builder.WithOrigins(
-                    //     "http://localhost:3000",
-                    //     "https://localhost:3000",
-                    //     "https://direwolvesndragons.netlify.com"
-                    // );
-
-                    // Allow any origin for the sake of the project. Normally we'd restrict origin domains
-                    // to the domains we control.
-                    builder.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod();
-                });
-            });
-
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
-
-            // Set up the database context using the in memory database we created.
-            services.AddDbContext<InMemoryDbContext>(options => options.UseInMemoryDatabase(databaseName: "Direwolves & Dragons"));
-        }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
-
-            // Allow any origin for the sake of the project. Normally we'd restrict origin domains
-            // to the domains we control.
-            app.UseCors("MyCors");
-
-            app.UseHttpsRedirection();
-            app.UseMvc();
-        }
+      Configuration = configuration;
     }
+
+    public IConfiguration Configuration { get; }
+
+    // This method gets called by the runtime. Use this method to add services to the container.
+    public void ConfigureServices(IServiceCollection services)
+    {
+      services.AddCors(options =>
+      {
+        options.AddPolicy("MyCors",
+              builder =>
+              {
+                // builder.WithOrigins(
+                //     "http://localhost:3000",
+                //     "https://localhost:3000",
+                //     "https://direwolvesndragons.netlify.com"
+                // );
+
+                // Allow any origin for the sake of the project. Normally we'd restrict origin domains
+                // to the domains we control.
+                builder.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod();
+              });
+      });
+
+      services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+
+      // Set up the database context using the in memory database we created.
+      services.AddDbContext<InMemoryDbContext>(options => options.UseInMemoryDatabase(databaseName: "Direwolves & Dragons"));
+    }
+
+    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+      if (env.IsDevelopment())
+      {
+        app.UseDeveloperExceptionPage();
+      }
+      else
+      {
+        // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+        // app.UseHsts();
+      }
+
+      // Allow any origin for the sake of the project. Normally we'd restrict origin domains
+      // to the domains we control.
+      app.UseCors("MyCors");
+
+      //   app.UseHttpsRedirection();
+      app.UseMvc();
+    }
+  }
 }
