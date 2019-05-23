@@ -28,7 +28,6 @@ export const createParty = async (newParty: Party) => {
   try {
     const response = await fetch(`${baseUrl}/api/party`, {
       method: "POST",
-      mode: "cors",
       headers: headers,
       body: JSON.stringify({
         name: newParty.name,
