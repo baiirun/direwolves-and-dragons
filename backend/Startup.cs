@@ -26,23 +26,24 @@ namespace backend
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-      services.AddCors(options =>
-      {
-        options.AddPolicy("MyCors",
-              builder =>
-              {
-                // builder.WithOrigins(
-                //     "http://localhost:3000",
-                //     "https://localhost:3000",
-                //     "https://direwolvesndragons.netlify.com"
-                // );
+      //   services.AddCors(options =>
+      //   {
+      //     options.AddPolicy("MyCors",
+      //           builder =>
+      //           {
+      //             // builder.WithOrigins(
+      //             //     "http://localhost:3000",
+      //             //     "https://localhost:3000",
+      //             //     "https://direwolvesndragons.netlify.com"
+      //             // );
 
-                // Allow any origin for the sake of the project. Normally we'd restrict origin domains
-                // to the domains we control.
-                builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
-              });
-      });
+      //             // Allow any origin for the sake of the project. Normally we'd restrict origin domains
+      //             // to the domains we control.
+      //             builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+      //           });
+      //   });
 
+      services.AddCors();
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
 
@@ -66,7 +67,13 @@ namespace backend
 
       // Allow any origin for the sake of the project. Normally we'd restrict origin domains
       // to the domains we control.
-      app.UseCors("MyCors");
+      app.UseCors(builder =>
+      {
+        builder
+          .AllowAnyOrigin()
+          .AllowAnyMethod()
+          .AllowAnyHeader();
+      });
 
       // Normally this would be enabled. Disable it for the sake of more accessible demoing.
       //   app.UseHttpsRedirection();
