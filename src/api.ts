@@ -50,6 +50,7 @@ export const submitEditedParty = async (updatedParty: Party) => {
   try {
     await fetch(`${baseUrl}/api/party/${updatedParty.id}`, {
       method: "PUT",
+      mode: "no-cors",
       headers: headers,
       body: JSON.stringify(updatedParty),
     });
@@ -62,6 +63,7 @@ export const deleteParty = async (partyToDelete: Party) => {
   try {
     const response = await fetch(`${baseUrl}/api/party/${partyToDelete.id}`, {
       method: "DELETE",
+      mode: "cors",
       headers: headers,
       body: JSON.stringify(partyToDelete),
     });
