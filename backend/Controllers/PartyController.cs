@@ -51,6 +51,7 @@ namespace backend.Controllers
     }
 
     // POST: api/party
+    [EnableCors("MyCors")]
     [HttpPost]
     public async Task<ActionResult<Party>> PostParty(Party party)
     {
@@ -60,6 +61,7 @@ namespace backend.Controllers
       return Ok(new Models.Party { Id = party.Id, Name = party.Name, Tagline = party.Tagline, LogoUrl = party.LogoUrl, Characters = party.Characters });
     }
 
+    [EnableCors("MyCors")]
     [HttpPut("{id}")]
     public async Task<ActionResult<Party>> PutParty(long id, Party party)
     {
@@ -74,6 +76,7 @@ namespace backend.Controllers
       return NoContent();
     }
 
+    [EnableCors("MyCors")]
     [HttpDelete("{id}")]
     public async Task<ActionResult<Party>> Delete(long id)
     {
