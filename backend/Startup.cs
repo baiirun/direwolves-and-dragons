@@ -60,6 +60,7 @@ namespace backend
       else
       {
         // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+        // Normally this would be enabled. Disable it for the sake of more accessible demoing.
         // app.UseHsts();
       }
 
@@ -67,6 +68,7 @@ namespace backend
       // to the domains we control.
       app.UseCors("MyCors");
 
+      // Normally this would be enabled. Disable it for the sake of more accessible demoing.
       //   app.UseHttpsRedirection();
       app.UseMvc();
     }
