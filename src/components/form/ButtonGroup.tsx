@@ -20,7 +20,11 @@ const ButtonGroup = ({
         Submit
       </Button>
       {isDeleteVisible ? (
-        <DeleteButton onClick={onDeleteClick} disabled={isLoading}>
+        <DeleteButton
+          onClick={onDeleteClick}
+          disabled={isLoading}
+          type="button"
+        >
           Delete
         </DeleteButton>
       ) : null}
